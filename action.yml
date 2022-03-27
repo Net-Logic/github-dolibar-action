@@ -1,0 +1,16 @@
+name: 'Github Dolibarr Module Bump'
+description: 'Bump and push git tag on merge'
+author: 'frederic34'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+outputs:
+  new_tag:
+    description: 'Generated dolibarr module version tag'
+  tag:
+    description: 'The latest tag after running this action'
+  part:
+    description: 'The part of version which was bumped'
+branding:
+  icon: 'git-merge'
+  color: 'purple'
