@@ -51,7 +51,7 @@ echo "preTagFmt = $preTagFmt"
 case "$tag_context" in
     *repo*)
         taglist="$(git for-each-ref --sort=-v:refname --format '%(refname:lstrip=2)' | grep -E "$tagFmt")"
-        tag="$(semver "$taglist/$module-/" | tail -n 1)"
+        tag="$(semver "${taglist/$module-/}" | tail -n 1)"
 
         pre_taglist="$(git for-each-ref --sort=-v:refname --format '%(refname:lstrip=2)' | grep -E "$preTagFmt")"
         pre_tag="$(semver "$pre_taglist" | tail -n 1)"
