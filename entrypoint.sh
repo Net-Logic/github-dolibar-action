@@ -43,7 +43,9 @@ echo "tag_context = $tag_context"
 git fetch --tags
 
 tagFmt="^$module-?[0-9]+\.[0-9]+\.[0-9]+$"
+echo "tagFmt = $tagFmt"
 preTagFmt="^$module-?[0-9]+\.[0-9]+\.[0-9]+(-$suffix\.[0-9]+)?$"
+echo "preTagFmt = $preTagFmt"
 
 # get latest tag that looks like a semver (with or without module name)
 case "$tag_context" in
