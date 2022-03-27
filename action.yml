@@ -1,6 +1,6 @@
 name: 'Github Dolibarr Module Bump'
 description: 'Bump and push git tag on merge'
-author: 'frederic34'
+author: 'Net-Logic'
 runs:
   using: 'docker'
   image: 'Dockerfile'
