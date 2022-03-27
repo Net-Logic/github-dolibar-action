@@ -1,1 +1,1 @@
-# github-dolibar-action
+# github-dolibarr-action
