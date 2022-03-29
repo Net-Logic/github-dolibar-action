@@ -131,9 +131,9 @@ new="$module-$new"
 
 if $pre_release
 then
-    echo -e "Bumping tag ${pre_tag} \n\tNew tag ${new}"
+    echo -e "Bumping tag ${pre_tag}\n\tNew tag ${new}"
 else
-    echo -e "Bumping tag ${tag} \n\tNew tag ${new}"
+    echo -e "Bumping tag ${tag}\n\tNew tag ${new}"
 fi
 
 # set outputs
