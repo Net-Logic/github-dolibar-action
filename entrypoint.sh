@@ -14,7 +14,7 @@ tag_context=${TAG_CONTEXT:-repo}
 suffix=${PRERELEASE_SUFFIX:-beta}
 verbose=${VERBOSE:-true}
 # old_version=$(grep ">version" core/modules/mod${classname}.class.php | awk '{print $3}')
-old_version=$(sed -rn "s/^\s*'>version'\s*=>\s*'(.*)'.*$/\1/p" core/modules/mod${classname}.class.php)
+old_version=$(sed -rn "/.*->version\s*=\s*('|\")(.*)'.*$/p" core/modules/mod${classname}.class.php | cut -d "'" -f 2)
 echo "old_version = $old_version"
 
 cd ${GITHUB_WORKSPACE}/${source}
