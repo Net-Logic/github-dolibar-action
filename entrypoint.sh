@@ -82,7 +82,7 @@ then
     fi
 else
     echo -i "s/$old_version/$tag/" core/modules/mod${classname}.class.php
-    sed -i "'s/$old_version/$tag/'" core/modules/mod${classname}.class.php
+    sed -i '"s/$old_version/$tag/"' core/modules/mod${classname}.class.php
     #sed -i "s/1.0.0/1.1.0/" core/modules/modDoliTrashCan.class.php
     cat core/modules/mod${classname}.class.php
     log=$(git log $module-$tag...HEAD --pretty='%B')
