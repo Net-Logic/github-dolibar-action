@@ -70,6 +70,7 @@ case "$tag_context" in
     * ) echo "Unrecognised context"; exit 1;;
 esac
 
+echo "new tag = $tag"
 
 # if there are none, start tags at INITIAL_VERSION which defaults to 0.0.0
 if [ -z "$tag" ]
@@ -82,7 +83,7 @@ then
     fi
 else
     echo -i "s/$old_version/$tag/" core/modules/mod${classname}.class.php
-    sed -i '"s/$old_version/$tag/"' core/modules/mod${classname}.class.php
+    sed -i "s/$old_version/$tag/" core/modules/mod${classname}.class.php
     #sed -i "s/1.0.0/1.1.0/" core/modules/modDoliTrashCan.class.php
     cat core/modules/mod${classname}.class.php
     log=$(git log $module-$tag...HEAD --pretty='%B')
