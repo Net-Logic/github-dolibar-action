@@ -54,11 +54,11 @@ echo "preTagFmt = $preTagFmt"
 # get latest tag that looks like a semver (with or without module name)
 case "$tag_context" in
     *repo*)
-        taglist="$(git for-each-ref --sort=-v:refname --format '%(refname:lstrip=2)' | grep -E "$tagFmt")"
-        tag="$(semver "${taglist/"$module"-/}" | tail -n 1)"
+        #taglist="$(git for-each-ref --sort=-v:refname --format '%(refname:lstrip=2)' | grep -E "$tagFmt")"
+        tag="$(semver "$old_version" | tail -n 1)"
 
-        pre_taglist="$(git for-each-ref --sort=-v:refname --format '%(refname:lstrip=2)' | grep -E "$preTagFmt")"
-        pre_tag="$(semver "${pre_taglist/"$module"-/}" | tail -n 1)"
+        #pre_taglist="$(git for-each-ref --sort=-v:refname --format '%(refname:lstrip=2)' | grep -E "$preTagFmt")"
+        pre_tag="$(semver "$old_version}" | tail -n 1)"
         ;;
     *branch*)
         taglist="$(git tag --list --merged HEAD --sort=-v:refname | grep -E "$tagFmt")"
