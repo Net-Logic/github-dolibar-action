@@ -13,7 +13,7 @@ tag_context=${TAG_CONTEXT:-repo}
 suffix=${PRERELEASE_SUFFIX:-beta}
 verbose=${VERBOSE:-true}
 old_version=$(grep $this->version core/module/${module}mod.class.php | awk '{print $4}' | head -n 1)
-echo ${old_version}
+echo "old_version = $old_version"
 
 cd ${GITHUB_WORKSPACE}/${source}
 echo "*** CONFIGURATION ***"
