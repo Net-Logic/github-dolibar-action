@@ -81,7 +81,7 @@ then
       pre_tag="$initial_version"
     fi
 else
-    $(sed -i "s/$old_version/$tag/" core/modules/mod${classname}.class.php)
+    $(sed -i "s/${old_version}/${tag}/" core/modules/mod${classname}.class.php)
     log=$(git log $module-$tag...HEAD --pretty='%B')
 fi
 
