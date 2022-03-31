@@ -5,6 +5,7 @@ set -o pipefail
 # config
 default_semvar_bump=${DEFAULT_BUMP:-minor}
 module=${MODULE}
+classname=${CLASSNAME}
 release_branches=${RELEASE_BRANCHES:-master,main}
 source=${SOURCE:-.}
 dryrun=${DRY_RUN:-false}
@@ -12,7 +13,7 @@ initial_version=${INITIAL_VERSION:-${module}-0.0.0}
 tag_context=${TAG_CONTEXT:-repo}
 suffix=${PRERELEASE_SUFFIX:-beta}
 verbose=${VERBOSE:-true}
-old_version=$(grep $this->version core/module/${module}mod.class.php | awk '{print $4}' | head -n 1)
+old_version=$(grep $this->version core/module/mod${classname}.class.php | awk '{print $4}' | head -n 1)
 echo "old_version = $old_version"
 
 cd ${GITHUB_WORKSPACE}/${source}
