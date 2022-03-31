@@ -132,8 +132,6 @@ echo $part
 echo $new
 
 sed -i "s/$old_version/$new/" core/modules/mod${classname}.class.php
-#sed -i "s/1.0.0/1.1.0/" core/modules/modDoliTrashCan.class.php
-cat core/modules/mod${classname}.class.php
 
 # prefix with modulename-
 new="$module-$new"
