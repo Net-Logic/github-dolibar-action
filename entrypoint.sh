@@ -62,10 +62,10 @@ case "$tag_context" in
         ;;
     *branch*)
         taglist="$(git tag --list --merged HEAD --sort=-v:refname | grep -E "$tagFmt")"
-        tag="$(semver "${taglist/"$module"-/}" | tail -n 1)"
+        tag="$(semver "${taglist}" | tail -n 1)"
 
         pre_taglist="$(git tag --list --merged HEAD --sort=-v:refname | grep -E "$preTagFmt")"
-        pre_tag=$(semver "${pre_taglist/"$module"-/}" | tail -n 1)
+        pre_tag=$(semver "${pre_taglist}" | tail -n 1)
         ;;
     * ) echo "Unrecognised context"; exit 1;;
 esac
