@@ -9,7 +9,7 @@ classname=${CLASSNAME}
 release_branches=${RELEASE_BRANCHES:-master,main}
 source=${SOURCE:-.}
 dryrun=${DRY_RUN:-false}
-initial_version=${INITIAL_VERSION:-${module}-0.0.0}
+initial_version=${INITIAL_VERSION:-v0.0.0}
 tag_context=${TAG_CONTEXT:-repo}
 suffix=${PRERELEASE_SUFFIX:-beta}
 verbose=${VERBOSE:-true}
@@ -46,9 +46,9 @@ echo "tag_context = $tag_context"
 # fetch tags
 git fetch --tags
 
-tagFmt="^$module-?[0-9]+\.[0-9]+\.[0-9]+$"
+tagFmt="^v?[0-9]+\.[0-9]+\.[0-9]+$"
 echo "tagFmt = $tagFmt"
-preTagFmt="^$module-?[0-9]+\.[0-9]+\.[0-9]+(-$suffix\.[0-9]+)?$"
+preTagFmt="^v?[0-9]+\.[0-9]+\.[0-9]+(-$suffix\.[0-9]+)?$"
 echo "preTagFmt = $preTagFmt"
 
 # get latest tag that looks like a semver (with or without module name)
@@ -134,7 +134,7 @@ echo $new
 sed -i "s/$old_version/$new/" core/modules/mod${classname}.class.php
 
 # prefix with modulename-
-new="$module-$new"
+new="v$new"
 
 if $pre_release
 then
