@@ -82,7 +82,7 @@ then
       pre_tag="$initial_version"
     fi
 else
-    log=$(git log $module-$tag...HEAD --pretty='%B')
+    log=$(git log $tag...HEAD --pretty='%B')
 fi
 
 # get current commit hash for tag
