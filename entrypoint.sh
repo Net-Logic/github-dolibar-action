@@ -139,8 +139,10 @@ new="v$new"
 if $pre_release
 then
     echo -e "Bumping tag ${pre_tag}\n\tNew tag ${new}"
+    echo "{module_version}=${pre_tag}" >> $GITHUB_ENV
 else
     echo -e "Bumping tag ${tag}\n\tNew tag ${new}"
+    echo "{module_version}=${tag}" >> $GITHUB_ENV
 fi
 
 # set outputs
